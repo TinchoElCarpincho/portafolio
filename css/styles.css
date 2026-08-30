@@ -1,3 +1,8 @@
+/* Esto obliga a que el padding se calcule hacia adentro, sin agrandar el tamaño de la caja */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 /* Color de fondo general de la página para que resalte la navbar */
 body {
     background-color: #050505; 
@@ -7,7 +12,7 @@ body {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* Compensa el espacio que ocupa tu navbar */
+    scroll-padding-top: 20px; /* Compensa el espacio que ocupa tu navbar */
 }
 
 /* --- ESTILOS DE LA NAVBAR --- */
@@ -90,20 +95,21 @@ html {
 
 /* Le damos altura a las secciones solo para que puedas probar el scroll */
 .seccion {
-    padding: 80px 20px;
-    scroll-margin-top: 100px; /* Esto frena el scroll justo debajo de la navbar en todas las secciones */
+    padding: 30px 20px; /* Achicamos el relleno para que el título quede más arriba */
+    min-height: 85vh; /* Esto frena el scroll justo debajo de la navbar en todas las secciones */
 }
 
 /* --- SECCIÓN INICIO (HERO) --- */
 .hero-section {
     display: flex;
-    align-items: center; /* Centra los elementos verticalmente */
-    justify-content: space-between; /* Separa el texto de la imagen */
+    align-items: center; 
+    justify-content: space-between; 
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
-    padding: 0 40px;
-    gap: 50px; /* Espacio entre el texto y la foto */
+    /* Usamos calc para restar los ~100px que ocupa tu navbar del total de la pantalla */
+    min-height: calc(100vh - 100px); 
+    padding: 20px 40px; /* Reduje un poco el padding superior e inferior */
+    gap: 40px;
 }
 
 /* --- COLUMNA IZQUIERDA (TEXTOS) --- */
@@ -122,16 +128,17 @@ html {
 
 .hero-title {
     color: #ffffff;
-    font-size: 3.5rem;
+    /* clamp(minimo, ideal, maximo): El texto se achica si la pantalla es más pequeña */
+    font-size: clamp(2.5rem, 4vw, 3.5rem); 
     line-height: 1.1;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .hero-description {
     color: #a0a0a0;
-    font-size: 20px;
-    margin-bottom: 40px;
-    line-height: 1.6;
+    font-size: 17px; /* Antes estaba en 20px, esto ahorra mucho espacio vertical */
+    margin-bottom: 30px;
+    line-height: 1.5;
 }
 
 /* Botones de acción */
@@ -178,9 +185,10 @@ html {
 .hero-image img {
     width: 100%;
     max-width: 400px;
-    border-radius: 20px; /* Suaviza las esquinas de tu foto */
+    max-height: 65vh; /* La imagen nunca será más alta que el 65% de la pantalla */
     object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sutil sombra para dar profundidad */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 /* --- SECCIÓN SOBRE MÍ --- */
 .about-section {
@@ -366,6 +374,15 @@ html {
 /* --- DISEÑO RESPONSIVO (MÓVILES) --- */
 @media (max-width: 768px) {
     
+    /* Agregamos esto para compensar la navbar más alta en celulares */
+    html {
+        scroll-padding-top: 100px; /* Frena el scroll mucho antes en móvil */
+    }
+
+    /* 1. Navbar: Reducimos espacios... (el resto de tu código móvil sigue igual) */
+    .navbar {
+        flex-direction: column;
+    }
     /* 1. Navbar: Reducimos espacios para que los links entren en una sola línea */
     .navbar {
         flex-direction: column;
