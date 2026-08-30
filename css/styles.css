@@ -371,6 +371,105 @@ html {
     flex: 1; /* Esto hace que ambos botones ocupen exactamente la mitad del ancho */
 }
 
+/* --- SECCIÓN CONTACTO (FOOTER) --- */
+.contact-section {
+    background-color: #111111;
+    text-align: center;
+    padding: 60px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid #222;
+}
+
+.contact-container {
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.contact-text {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Contenedor de botones (Email y Redes) */
+.contact-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+/* --- Estilos para la caja del Email y botón Copiar --- */
+.email-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: transparent;
+    border: 1px solid #333;
+    padding: 6px 6px 6px 20px; /* Menos relleno a la derecha porque ahí va el botón */
+    border-radius: 50px;
+}
+
+.email-text {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.copy-btn {
+    background-color: #222222;
+    border: none;
+    color: #a0a0a0;
+    padding: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+    background-color: #ffffff;
+    color: #050505;
+}
+
+.contact-btn.email-btn:hover {
+    background-color: #ffffff;
+    color: #050505;
+}
+
+/* Iconos Sociales */
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-btn {
+    color: #a0a0a0;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+}
+
+.social-btn:hover {
+    color: #ffffff;
+    transform: translateY(-5px); /* Efecto de salto al pasar el mouse */
+}
+
+/* Footer inferior */
+.footer-bottom {
+    width: 100%;
+    border-top: 1px solid #222;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
 /* --- DISEÑO RESPONSIVO (MÓVILES) --- */
 @media (max-width: 768px) {
     
@@ -497,4 +596,6 @@ html {
         width: 100%;
         box-sizing: border-box;
     }
+
+    
 }

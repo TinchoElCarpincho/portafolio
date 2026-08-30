@@ -47,7 +47,7 @@
             <div class="hero-buttons">
                 <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
                 <!-- Aquí luego puedes enlazar tu PDF real -->
-                <a href="#" class="btn-secondary">Descargar CV</a> 
+                <a href="img/CV_Lautaro_Viglione.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary">Ver CV</a>
             </div>
         </div>
 
@@ -173,9 +173,57 @@
                 <!-- Puedes copiar y pegar todo el bloque "project-card" para agregar más proyectos futuros -->
             </div>
         </section>
+    <!-- ... (tu código anterior) ... -->
+        <section id="proyectos" class="projects-section seccion">
+            <!-- (Contenido de tus proyectos) -->
+        </section>
+
+        <!-- AGREGAR ESTO: Sección de Contacto / Footer -->
+        <section id="contacto" class="contact-section seccion">
+            <div class="contact-container">
+                <h2 class="section-title">¡Hablemos!</h2>
+                <p class="contact-text">
+                    Actualmente estoy buscando mi primera experiencia profesional en IT. 
+                    Si te interesa mi perfil o quieres charlar sobre tecnología, ¡no dudes en escribirme!
+                </p>
+                
+                <div class="contact-links">
+                    <!-- Contenedor del Email y Botón de Copiar -->
+                    <div class="email-container">
+                        <!-- Reemplaza esto con tu correo real -->
+                        <span class="email-text" id="correo-contacto">lautyviglione@gmail.com</span>
+                        
+                        <button class="copy-btn" onclick="copiarCorreo()" title="Copiar correo">
+                            <!-- Icono de Copiar por defecto -->
+                            <svg id="icono-copiar" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            
+                            <!-- Icono de Check (Éxito) oculto inicialmente -->
+                            <svg id="icono-check" style="display: none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4caf50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <div class="social-links">
+                        <!-- Botón de GitHub -->
+                        <a href="https://github.com/TinchoElCarpincho" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+
+                        <!-- Botón de LinkedIn ACTUALIZADO -->
+                        <a href="https://www.linkedin.com/in/lautaro-viglione-313017411" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Lautaro Viglione. Todos los derechos reservados.</p>
+            </div>
+        </section>
     </main>
 
     <script>
+<!-- ... (tu script) ... -->
         // El script se mantiene igual, ¡estaba perfecto!
         const secciones = document.querySelectorAll('section');
         const enlaces = document.querySelectorAll('.nav-links a');
@@ -200,6 +248,29 @@
         secciones.forEach(seccion => {
             observador.observe(seccion);
         });
+
+        function copiarCorreo() {
+            // Obtenemos el texto del correo
+            const correo = document.getElementById('correo-contacto').innerText;
+            
+            // Usamos la API del portapapeles
+            navigator.clipboard.writeText(correo).then(() => {
+                const iconoCopiar = document.getElementById('icono-copiar');
+                const iconoCheck = document.getElementById('icono-check');
+                
+                // Ocultamos el icono de copiar y mostramos el tilde verde
+                iconoCopiar.style.display = 'none';
+                iconoCheck.style.display = 'block';
+                
+                // Volvemos a la normalidad después de 2 segundos
+                setTimeout(() => {
+                    iconoCopiar.style.display = 'block';
+                    iconoCheck.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Error al copiar el texto: ', err);
+            });
+        }
     </script>
 </body>
 </html>
