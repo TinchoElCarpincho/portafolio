@@ -279,7 +279,7 @@ html {
 
 /* Creamos una viñeta personalizada más moderna */
 .skill-card li::before {
-    content: '▹'; /* Un pequeño triángulo */
+    content: '\2726'; /* Un pequeño triángulo */
     position: absolute;
     left: 0;
     color: #ffffff;
@@ -380,6 +380,7 @@ html {
     flex-direction: column;
     align-items: center;
     border-top: 1px solid #222;
+    min-height: auto; /* ESTA LÍNEA ES LA MAGIA: Anula el 85vh de la clase .seccion */
 }
 
 .contact-container {
@@ -465,9 +466,32 @@ html {
 .footer-bottom {
     width: 100%;
     border-top: 1px solid #222;
-    padding-top: 20px;
+    padding-top: 2dvh;
     font-size: 0.9rem;
     color: #555;
+}
+
+/* --- Estilos especiales para las listas con Logos (Tech Skills) --- */
+.tech-list {
+    padding: 0 !important; /* Quitamos el padding extra */
+}
+
+.tech-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Separación entre el logo y el texto */
+    padding-left: 0 !important; /* Quitamos el espacio del triangulito */
+    font-size: 1rem !important; /* Hacemos el texto un pelín más grande para equilibrar el logo */
+}
+
+/* Ocultamos el triangulito (▹) SÓLO en las listas tecnológicas */
+.tech-list li::before {
+    display: none !important;
+}
+
+/* Tamaño de los logos */
+.tech-list li i {
+    font-size: 1.5rem; /* Tamaño ideal para que destaquen sin exagerar */
 }
 
 /* --- DISEÑO RESPONSIVO (MÓVILES) --- */
