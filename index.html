@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Lautaro Viglione</title>
+    
+    <!-- 1. Normalize (Solo dejamos el de internet) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    
+    <!-- 2. Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <!-- 3. Tu archivo CSS (Corregido: sin la carpeta "css/") -->
+    <link rel="preload" href="styles.css" as="style">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+
+        <ul class="nav-links">
+            <!-- Corregimos los href para que coincidan con los id (sin espacios y en español) -->
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mi</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+        </ul>
+
+        <a href="#contacto" class="btn-talk">Contactame</a>
+    </nav>
+    <main>
+        <section id="inicio" class="hero-section">
+        <!-- Columna Izquierda: Textos y botones -->
+        <div class="hero-content">
+            <span class="greeting">¡Hola! Soy Lautaro</span>
+            <h1 class="hero-title">Estudiante de Analista en Computación & Desarrollador Web</h1>
+            <p class="hero-description">
+                Apasionado por crear interfaces limpias y sistemas eficientes. Combinando lógica estructurada de backend con diseños responsivos y atractivos en el frontend.
+            </p>
+            <div class="hero-buttons">
+                <a href="#proyectos" class="btn-primary">Ver Proyectos</a>
+                <!-- Aquí luego puedes enlazar tu PDF real -->
+                <a href="#" class="btn-secondary">Descargar CV</a> 
+            </div>
+        </div>
+
+        <!-- Columna Derecha: Foto -->
+        <div class="hero-image">
+            <!-- Reemplaza "mi-foto.jpg" con el nombre real de tu imagen -->
+            <img src="img/Foto-perfil.jpeg" alt="Foto de Lautaro">
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about-section seccion">
+        <h2 class="section-title">Sobre Mí</h2>
+        
+        <div class="about-container">
+            <!-- Puedes copiar y pegar aquí la opción de texto que más te guste -->
+            <p class="about-text">
+                Soy estudiante de último año de la carrera de Analista en Computación, con una gran pasión por el desarrollo de software y la resolución de problemas lógicos. Durante mi formación académica construí bases muy sólidas en backend utilizando Java, gestión de bases de datos relacionales y arquitectura MVC.
+            </p>
+            <p class="about-text">
+                Actualmente, me encuentro perfeccionando mis habilidades en el frontend, aplicando metodologías modernas de CSS y maquetación web para crear proyectos completos. Busco mi primera oportunidad profesional en el sector IT para integrarme a un equipo, aportar valor y seguir creciendo profesionalmente.
+            </p>
+        </div>
+    </section>  
+
+        <section id="habilidades" class="skills-section seccion">
+            <h2 class="section-title">Mis Habilidades</h2>
+            
+            <div class="skills-grid">
+                <!-- Tarjeta 1: Backend -->
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>SQL / Bases de Datos Relacionales</li>
+                        <li>ActiveJDBC (ORM)</li>
+                        <li>Arquitectura MVC</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2: Frontend -->
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5 Semántico</li>
+                        <li>CSS3 (Flexbox & Grid)</li>
+                        <li>Metodología BEM</li>
+                        <li>Diseño Responsivo (Mobile First)</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3: Herramientas -->
+                <div class="skill-card">
+                    <h3>Herramientas e Infra</h3>
+                    <ul>
+                        <li>Git & Git Bash</li>
+                        <li>GitHub</li>
+                        <li>Visual Studio Code</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 4: Soft Skills -->
+                <div class="skill-card">
+                    <h3>Habilidades Blandas</h3>
+                    <ul>
+                        <li>Trabajo colaborativo en equipo</li>
+                        <li>Resolución de problemas lógicos</li>
+                        <li>Comunicación efectiva</li>
+                        <li>Proactividad</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="proyectos" class="projects-section seccion">
+
+    <h2 class="section-title">Mis Proyectos</h2>
+    
+         <div class="projects-grid">
+                <!-- Tarjeta del Sistema Universitario -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <!-- Reemplaza con la ruta a una captura de pantalla de tu app -->
+                        <img src="img/Sge.jpg" alt="Sistema de Gestión Universitaria">
+                    </div>
+                    
+                    <div class="project-content">
+                        <h3>Sistema de Gestión Universitaria</h3>
+                        <p>
+                            Plataforma para la gestión académica y registro de profesores. Desarrollada con arquitectura MVC y conexión eficiente a bases de datos relacionales.
+                        </p>
+                        
+                        <div class="project-tags">
+                            <span>Java</span>
+                            <span>ActiveJDBC</span>
+                            <span>Mustache</span>
+                            <span>SQL</span>
+                        </div>
+                        
+                        <div class="project-links">
+                            <!-- El href="#" es un enlace vacío por ahora hasta que tengas tu demo -->
+                            <a href="#" class="btn-primary" target="_blank">Probar Demo</a>
+                            <!-- Aquí puedes poner el enlace directo a tu repositorio -->
+                            <a href="https://github.com/TinchoElCarpincho/tu-repo" class="btn-secondary" target="_blank">Ver Código</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puedes copiar y pegar todo el bloque "project-card" para agregar más proyectos futuros -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // El script se mantiene igual, ¡estaba perfecto!
+        const secciones = document.querySelectorAll('section');
+        const enlaces = document.querySelectorAll('.nav-links a');
+
+        const observador = new IntersectionObserver((entradas) => {
+            entradas.forEach(entrada => {
+                if (entrada.isIntersecting) {
+                    const idActual = entrada.target.getAttribute('id');
+
+                    enlaces.forEach(enlace => {
+                        enlace.classList.remove('active');
+                        if (enlace.getAttribute('href') === '#' + idActual) {
+                            enlace.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.5 
+        });
+
+        secciones.forEach(seccion => {
+            observador.observe(seccion);
+        });
+    </script>
+</body>
+</html>

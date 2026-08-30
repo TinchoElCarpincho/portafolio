@@ -1,0 +1,483 @@
+/* Color de fondo general de la página para que resalte la navbar */
+body {
+    background-color: #050505; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tu fuente de Google Fonts irá aquí */
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Compensa el espacio que ocupa tu navbar */
+}
+
+/* --- ESTILOS DE LA NAVBAR --- */
+.navbar {
+    display: flex;
+    align-items: center; 
+    justify-content: center; /* Mantiene el menú y el botón centrados en la pantalla */
+    gap: 20px; /* Separación exacta entre la píldora de links y el botón */
+    padding: 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    background-color: #050505; 
+}
+
+/* La "Píldora" del Menú Central */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    background-color: #111111; 
+    border: 1px solid #222; 
+    border-radius: 50px; 
+    padding: 12px 40px; /* Relleno general solo para el contenedor negro */
+    gap: 40px; /* Separación limpia entre las palabras */
+}
+
+/* Estilos de los enlaces del menú */
+.nav-links li a {
+    text-decoration: none;
+    color: #a0a0a0; 
+    font-size: 16px; 
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative; 
+    /* ¡CORREGIDO! Quitamos el padding lateral para que la línea mida lo mismo que el texto */
+    padding: 5px 0; 
+}
+
+/* Efecto hover */
+.nav-links li a:hover {
+    color: #ffffff;
+}
+
+/* El estado "Activo" (La línea debajo) */
+.nav-links li a.active {
+    color: #ffffff;
+}
+
+.nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Altura ajustada para que quede prolija bajo el texto */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+/* Botón "Contáctame" (estilo píldora) */
+.btn-talk {
+    text-decoration: none;
+    background-color: #111111; /* Igual al color de la píldora del menú */
+    color: #ffffff;
+    padding: 12px 30px; /* Altura alineada visualmente con el menú */
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #222; /* Mismo borde para unificar el diseño */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-talk:hover {
+    background-color: #222222; 
+    border-color: #444;
+}
+
+/* Le damos altura a las secciones solo para que puedas probar el scroll */
+.seccion {
+    padding: 80px 20px;
+    scroll-margin-top: 100px; /* Esto frena el scroll justo debajo de la navbar en todas las secciones */
+}
+
+/* --- SECCIÓN INICIO (HERO) --- */
+.hero-section {
+    display: flex;
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Separa el texto de la imagen */
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 80vh; /* Ocupa el 80% de la altura de la pantalla */
+    padding: 0 40px;
+    gap: 50px; /* Espacio entre el texto y la foto */
+}
+
+/* --- COLUMNA IZQUIERDA (TEXTOS) --- */
+.hero-content {
+    flex: 1; /* Le dice que ocupe la mitad del espacio disponible */
+    max-width: 600px;
+}
+
+.greeting {
+    color: #a0a0a0;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-title {
+    color: #ffffff;
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.hero-description {
+    color: #a0a0a0;
+    font-size: 20px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Botones de acción */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    background-color: #ffffff;
+    color: #050505;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    border: 1px solid #333;
+    transition: border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    border-color: #ffffff;
+}
+
+/* --- COLUMNA DERECHA (FOTO) --- */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Empuja la imagen hacia la derecha */
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px; /* Suaviza las esquinas de tu foto */
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Sutil sombra para dar profundidad */
+}
+/* --- SECCIÓN SOBRE MÍ --- */
+.about-section {
+    max-width: 800px; /* Lo hacemos un poco más angosto para que la lectura sea cómoda */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-title {
+    color: #ffffff;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Una pequeña línea decorativa debajo del título */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #555;
+    border-radius: 2px;
+}
+
+.about-text {
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: left; /* Alineado a la izquierda se lee más profesional en párrafos largos */
+}
+
+/* --- SECCIÓN HABILIDADES --- */
+.skills-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.skills-grid {
+    display: grid;
+    /* Esto crea columnas que se adaptan automáticamente al tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.skill-card {
+    background-color: #111111;
+    border: 1px solid #222;
+    border-radius: 15px;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Pequeño efecto de elevación al pasar el mouse */
+.skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+}
+
+.skill-card h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.skill-card ul {
+    list-style: none; /* Quitamos las viñetas por defecto */
+    padding: 0;
+}
+
+.skill-card li {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px; /* Dejamos espacio para nuestro propio "bullet" */
+}
+
+/* Creamos una viñeta personalizada más moderna */
+.skill-card li::before {
+    content: '▹'; /* Un pequeño triángulo */
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+}
+
+/* --- SECCIÓN PROYECTOS --- */
+.projects-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    /* Las tarjetas tendrán un ancho mínimo de 320px, acomodándose automáticamente */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.project-card {
+    background-color: #111111;
+    border: 1px solid #222;
+    border-radius: 15px;
+    overflow: hidden; 
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+}
+
+/* Contenedor de la imagen */
+.project-image img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover; /* Evita que la imagen se deforme o estire */
+    border-bottom: 1px solid #222;
+}
+
+/* Espaciado interno de los textos */
+.project-content {
+    padding: 25px;
+}
+
+.project-content h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.project-content p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Diseño de las etiquetas tecnológicas ("píldoras") */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap; /* Si hay muchas etiquetas, bajan a la siguiente línea */
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.project-tags span {
+    background-color: #222222;
+    color: #e0e0e0;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 50px;
+}
+
+/* Botones alineados horizontalmente */
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.project-links .btn-primary,
+.project-links .btn-secondary {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    text-align: center;
+    flex: 1; /* Esto hace que ambos botones ocupen exactamente la mitad del ancho */
+}
+
+/* --- DISEÑO RESPONSIVO (MÓVILES) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Navbar: Reducimos espacios para que los links entren en una sola línea */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 10px;
+        gap: 12px;
+    }
+    
+    .nav-links {
+        width: 100%;
+        padding: 12px 5px;
+        gap: 8px; /* Menos separación entre palabras */
+        justify-content: space-evenly; 
+        border-radius: 15px;
+        box-sizing: border-box;
+    }
+    
+    .nav-links li a {
+        font-size: 13px; /* Achicamos un poco la fuente para que quepan todos */
+        padding: 5px 0;
+    }
+
+    .btn-talk {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* 2. Sección Hero: Reestructuración con CSS Grid */
+    .hero-section {
+        display: grid;
+        grid-template-columns: 1fr auto; /* Columna 1 para texto, Columna 2 para la foto */
+        column-gap: 15px;
+        row-gap: 10px;
+        padding: 40px 20px 20px;
+        text-align: left; /* Alineamos a la izquierda para acompañar la foto */
+    }
+    
+    /* Esta propiedad es mágica: hace que el contenedor desaparezca estructuralmente 
+       para que la grilla controle directamente el título, descripción y botones */
+    .hero-content {
+        display: contents; 
+    }
+    
+    .greeting { 
+        grid-column: 1 / 2; 
+        grid-row: 1; 
+        align-self: end;
+        margin: 0;
+    }
+    
+    .hero-title { 
+        grid-column: 1 / 2; 
+        grid-row: 2; 
+        font-size: 1.6rem; 
+        margin: 0;
+        align-self: start;
+    }
+    
+    /* La foto ocupa el lado derecho, al lado del saludo y el título */
+    .hero-image {
+        grid-column: 2 / 3; 
+        grid-row: 1 / 3; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-image img {
+        width: 90px;  /* Tamaño reducido para que encaje perfecto al lado del texto */
+        height: 90px; 
+        border-radius: 50%;
+        border: 2px solid #222;
+        margin: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    /* La descripción toma todo el ancho debajo del título y la foto */
+    .hero-description {
+        grid-column: 1 / 3; 
+        grid-row: 3;
+        font-size: 15px;
+        margin: 10px 0 15px 0;
+    }
+    
+    /* Los botones toman todo el ancho al fondo */
+    .hero-buttons {
+        grid-column: 1 / 3; 
+        grid-row: 4;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    /* 3. Sección Contacto (Móvil) */
+    .contact-container {
+        padding: 30px 20px;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .contact-links .btn-primary,
+    .contact-links .btn-secondary {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
