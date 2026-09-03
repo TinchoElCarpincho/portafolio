@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo | Sistema de Gestión Universitaria</title>
+    
+    <!-- Mismos enlaces base de tu portafolio -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Estilos específicos para esta página y el carrusel -->
+    <style>
+        .demo-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .demo-header {
+            margin-bottom: 40px;
+        }
+
+        /* --- EL CARRUSEL (Usando CSS Scroll Snap y Flexbox) --- */
+        .carousel {
+            display: flex;
+            overflow-x: auto; /* Permite deslizar horizontalmente */
+            scroll-snap-type: x mandatory; /* Fuerza a que frene exactamente en cada imagen */
+            gap: 20px;
+            padding-bottom: 20px;
+            
+            /* Ocultar la barra de scroll nativa para un diseño más limpio */
+            scrollbar-width: thin;
+            scrollbar-color: #444 #111;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%; /* Cada captura ocupa el 100% del contenedor */
+            scroll-snap-align: center; /* Centra la imagen al frenar el scroll */
+            background-color: #111111;
+            border: 1px solid #222;
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: contain;
+            max-height: 500px;
+        }
+
+        .carousel-slide p {
+            color: #a0a0a0;
+            margin-top: 15px;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+    <main class="demo-container">
+        
+        <!-- Botón para volver al perfil -->
+        <div style="text-align: left; margin-bottom: 40px;">
+            <a href="index.html#proyectos" class="btn-secondary">← Volver al portafolio</a>
+        </div>
+
+        <div class="demo-header">
+            <h1 class="hero-title">Sistema de Gestión Universitaria</h1>
+            <p class="hero-description">Demostración del registro de profesores y arquitectura MVC.</p>
+        </div>
+
+        <!-- Contenedor del Carrusel -->
+        <div class="carousel">
+            <!-- Diapositiva 1 -->
+            <div class="carousel-slide">
+                <img src="img/demo1.jpg" alt="Pantalla de inicio de sesión">
+                <p>1. Panel principal de acceso y conexión segura a la base de datos.</p>
+            </div>
+            
+            <!-- Diapositiva 2 -->
+            <div class="carousel-slide">
+                <!-- Aquí puedes poner tu .gif -->
+                <img src="img/demo2.gif" alt="Creando un profesor">
+                <p>2. Creación de un nuevo registro de profesor funcionando en tiempo real.</p>
+            </div>
+
+            <!-- Diapositiva 3 -->
+            <div class="carousel-slide">
+                <img src="img/demo3.jpg" alt="Vista de la base de datos">
+                <p>3. Gestión de la información estructurada mediante ActiveJDBC.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
