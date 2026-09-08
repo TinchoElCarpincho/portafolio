@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <title>Demo | Sistema de Gestión Universitaria</title>
-    
-    <!-- Mismos enlaces base de tu portafolio -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
-    <!-- Estilos específicos para esta página y el carrusel -->
     <style>
         .demo-container {
             max-width: 1000px;
@@ -23,22 +21,38 @@
             margin-bottom: 40px;
         }
 
-        /* --- EL CARRUSEL (Usando CSS Scroll Snap y Flexbox) --- */
         .carousel {
             display: flex;
-            overflow-x: auto; /* Permite deslizar horizontalmente */
-            scroll-snap-type: x mandatory; /* Fuerza a que frene exactamente en cada imagen */
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
             gap: 20px;
-            padding-bottom: 20px;
-            
-            /* Ocultar la barra de scroll nativa para un diseño más limpio */
+            width: 100%;
+            padding-bottom: 15px;
             scrollbar-width: thin;
-            scrollbar-color: #444 #111;
+            scrollbar-color: #444 transparent;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb {
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .carousel::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
         }
 
         .carousel-slide {
-            flex: 0 0 100%; /* Cada captura ocupa el 100% del contenedor */
-            scroll-snap-align: center; /* Centra la imagen al frenar el scroll */
+            flex: 0 0 100%;
+            scroll-snap-align: center;
             background-color: #111111;
             border: 1px solid #222;
             border-radius: 15px;
@@ -57,42 +71,283 @@
             margin-top: 15px;
             font-size: 1.1rem;
         }
+
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            z-index: 10;
+            background-color: rgba(20, 20, 20, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .carousel-btn:hover {
+            background-color: rgba(50, 50, 50, 0.9);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: #ffffff;
+            transition: stroke 0.3s;
+        }
+
+        .left-btn { left: -25px; }
+        .right-btn { right: -25px; }
+
+        /* --- ESTILOS DEL FOOTER DE LA DEMO --- */
+        .demo-footer {
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid #222;
+            text-align: center;
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo-footer p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            max-width: 650px;
+            line-height: 1.5;
+        }
+
+        /* El contenedor con forma de píldora para el correo */
+        .email-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid #444;
+            border-radius: 30px;
+            padding: 8px 10px 8px 25px;
+            background-color: transparent;
+            margin-bottom: 25px;
+        }
+
+        .email-pill span {
+            color: #ffffff;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-btn {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #a0a0a0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
+        .social-footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-footer-links a {
+            color: #a0a0a0;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .carousel-slide video {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 10px;
+            
+            -webkit-mask-image: -webkit-radial-gradient(white, black);
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            transform: translate3d(0, 0, 0);
+        }
     </style>
 </head>
 <body>
     <main class="demo-container">
         
-        <!-- Botón para volver al perfil -->
         <div style="text-align: left; margin-bottom: 40px;">
             <a href="index.html#proyectos" class="btn-secondary">← Volver al portafolio</a>
         </div>
 
         <div class="demo-header">
             <h1 class="hero-title">Sistema de Gestión Universitaria</h1>
-            <p class="hero-description">Demostración del registro de profesores y arquitectura MVC.</p>
+            <p class="hero-description">Demostración del funcionamientos del software a traves de los distintos flujos y roles de usuario.</p>
         </div>
 
-        <!-- Contenedor del Carrusel -->
-        <div class="carousel">
-            <!-- Diapositiva 1 -->
-            <div class="carousel-slide">
-                <img src="img/demo1.jpg" alt="Pantalla de inicio de sesión">
-                <p>1. Panel principal de acceso y conexión segura a la base de datos.</p>
-            </div>
+        <!-- SECCIÓN 1: ROL ADMINISTRADOR   -->
+        <h2 class="section-title" style="font-size: 1.8rem; margin-top: 50px;">Administrador</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
             
-            <!-- Diapositiva 2 -->
-            <div class="carousel-slide">
-                <!-- Aquí puedes poner tu .gif -->
-                <img src="img/demo2.gif" alt="Creando un profesor">
-                <p>2. Creación de un nuevo registro de profesor funcionando en tiempo real.</p>
+            <div class="carousel">
+                <div class="carousel-slide">
+                    <video src="img/videos/inicio-admin.webm" autoplay loop muted playsinline></video>
+                    <p>1. Inicio de sesion en el sistema.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/registro-usuario.webm" autoplay loop muted playsinline></video>
+                    <p>2. Registro, asignación y listado de nuevos profesores o alumnos a la base de datos.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/carreras.webm" autoplay loop muted playsinline></video>
+                    <p>3. Gestion de carreras, materias y planes de estudio.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/gestionar-asignacion2.webm" autoplay loop muted playsinline></video>
+                    <p>4. Asignacion de docentes a carreas y materias.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/crear-final.webm" autoplay loop muted playsinline></video>
+                    <p>5. Creacion de mesa de examenes.</p>
+                </div>
             </div>
 
-            <!-- Diapositiva 3 -->
-            <div class="carousel-slide">
-                <img src="img/demo3.jpg" alt="Vista de la base de datos">
-                <p>3. Gestión de la información estructurada mediante ActiveJDBC.</p>
-            </div>
+            <button class="carousel-btn right-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
         </div>
+
+        <!-- SECCIÓN 2: ROL DOCENTE         -->
+        <h2 class="section-title" style="font-size: 1.8rem; margin-top: 60px;">Rol: Docente</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            
+            <div class="carousel">
+                <div class="carousel-slide">
+                    <video src="img/videos/gestionar-comision.webm" autoplay loop muted playsinline></video>
+                    <p>1. Vista del docente: Gestion de comisiones, cargado de notas e inscripciones a finales.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/publicar-tarea.webm" autoplay loop muted playsinline></video>
+                    <p>2. Creacion de una nueva tarea desde la vista de docente.</p>
+                </div>
+            </div>
+
+            <button class="carousel-btn right-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+        <!-- SECCIÓN 3: ROL ALUMNO          -->
+        <h2 class="section-title" style="font-size: 1.8rem; margin-top: 60px;">Rol: Alumno</h2>
+        
+        <div class="carousel-wrapper">
+            <button class="carousel-btn left-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+
+            <div class="carousel">
+                <div class="carousel-slide">
+                    <video src="img/videos/elegir-carrera.webm" autoplay loop muted playsinline></video>
+                    <p>1. Interfaz del alumno y sistema de inscripción a carrera.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/inscribirse-mf.webm" autoplay loop muted playsinline></video>
+                    <p>2. Inscripción a materias y finales.</p>
+                </div>
+                <div class="carousel-slide">
+                    <video src="img/videos/entrega-tarea.webm" autoplay loop muted playsinline></video>
+                    <p>3. Entrega de tarea asignada a la comision.</p>
+                </div>
+            </div>
+
+            <button class="carousel-btn right-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+        </div>
+
+        <footer class="demo-footer">
+            <h2 class="section-title" style="font-size: 1.8rem;">¿Te interesó mi perfil?</h2>
+            <p>Si te gustó cómo estructuré este proyecto y mi forma de trabajar, me encantaría conectar.</p>
+            
+            <!-- Píldora del correo electrónico -->
+            <div class="email-pill">
+                <span id="correo-texto">lautyviglione@gmail.com</span>
+                <button onclick="copiarCorreo()" class="copy-btn" title="Copiar al portapapeles">
+                    <!-- Icono de copiar (SVG) -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+
+            <!-- Iconos de Redes Sociales -->
+            <div class="social-footer-links">
+                <a href="https://github.com/TinchoElCarpincho" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <!-- Reemplazá el href con la URL real de tu LinkedIn -->
+                <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+            </div>
+        </footer>
+
     </main>
+
+    <script>
+        const wrappers = document.querySelectorAll('.carousel-wrapper');
+
+        wrappers.forEach(wrapper => {
+            const carousel = wrapper.querySelector('.carousel');
+            const leftBtn = wrapper.querySelector('.left-btn');
+            const rightBtn = wrapper.querySelector('.right-btn');
+
+            leftBtn.addEventListener('click', () => {
+                const slide = carousel.querySelector('.carousel-slide');
+                const scrollAmount = slide.offsetWidth + 20;
+                
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
+
+            rightBtn.addEventListener('click', () => {
+                const slide = carousel.querySelector('.carousel-slide');
+                const scrollAmount = slide.offsetWidth + 20;
+                
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
 </html>
